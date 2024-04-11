@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from 'vue'
-const submitted = ref(false)
+import { ref } from "vue";
+const submitted = ref(false);
 const submitHandler = async () => {
   // Let's pretend this is an ajax request:
-  await new Promise((r) => setTimeout(r, 1000))
-  submitted.value = true
-}
+  await new Promise((r) => setTimeout(r, 1000));
+  submitted.value = true;
+};
 </script>
 
 <template>
@@ -64,6 +64,22 @@ const submitHandler = async () => {
     <FormKit type="submit" label="Register" />
     <pre wrap>{{ value }}</pre>
   </FormKit>
+
+  <FormKit
+    type="checkbox"
+    name="flavors"
+    label="Flavors"
+    :options="[
+      'Chocolate',
+      'Vanilla',
+      'Strawberry',
+      'gauva',
+      'Chiku',
+      'litche',
+    ]"
+    validation="required|min:2"
+  />
+
   <div v-if="submitted">
     <h2 class="text-xl text-green-500">Submission successful!</h2>
   </div>
